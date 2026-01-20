@@ -1,0 +1,15 @@
+jaffle_shop:
+  outputs:
+    dev:
+      type: duckdb
+      path: ../data/analytics.duckdb
+      schema: dbt_user
+      threads: 1
+
+    prod:
+      type: duckdb
+      path: ../data/analytics.duckdb
+      schema: analytics
+      threads: 4
+
+  target: dev
