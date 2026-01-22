@@ -3,7 +3,7 @@
 
 ## Chapter 03. Set Up dbt
 1. Create a new project folder: `mkdir dbt-fundamentals-duckdb`
-1. Create a Python virtual enviroment: `python -m venv venv`
+1. Create a Python virtual environment: `python -m venv venv`
 1. Activate the Python virtual envirmont: `source venv/Scripts/activate`
 1. Install dbt, DuckDB and the DuckDB plugin for dbt: `pip install dbt duckdb dbt-duckdb`
 1. Run `dbt init`
@@ -57,8 +57,8 @@ DuckDB stores a database as a file. One file is one database. It is possible to 
         copy raw_jaffle_shop.orders (id, user_id, order_date, status)
         from 's3://dbt-tutorial-public/jaffle_shop_orders.csv';
 
-        -- Payments table
-        create table raw_stripe.payments (
+        -- Payment table
+        create table raw_stripe.payment (
             id integer,
             orderid integer,
             paymentmethod varchar,
@@ -67,7 +67,7 @@ DuckDB stores a database as a file. One file is one database. It is possible to 
             created date,
             _batched_at timestamp default current_timestamp
         );
-        copy raw_stripe.payments (id, orderid, paymentmethod, status, amount, created)
+        copy raw_stripe.payment (id, orderid, paymentmethod, status, amount, created)
         from 's3://dbt-tutorial-public/stripe_payments.csv';
     """
     con.sql(q)
@@ -78,4 +78,5 @@ DuckDB stores a database as a file. One file is one database. It is possible to 
     
     con.close()
     ```
-1. Exit the Python or IPython prompt with `exit()`
+1. Now you have added a DuckDB database file **analytics.duckdb** and loaded the data into 3 tables
+1. Exit the Python or IPython prompt with `exit`
