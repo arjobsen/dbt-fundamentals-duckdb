@@ -25,7 +25,7 @@ The commands shown in the guide assume you are using either bash on Linux or [Gi
     * Windows (Git Bash): `source venv/Scripts/activate`
 1. Test with `which pip` that pip points to the executable in your venv folder
 1. Install dbt, DuckDB and the DuckDB plugin for dbt: `pip install dbt duckdb dbt-duckdb`
-1. Test with `dbt --version` that dbt-core and the dbt-postgres plugin is installed correctly
+1. Test with `dbt --version` that dbt-core and the dbt-duckdb plugin is installed correctly
 
 ### Initialize the dbt project folder
 1. Make sure you are in your **dbt-fundamentals-duckdb** folder and your venv is activated
@@ -98,7 +98,7 @@ DuckDB stores a database as a file. One file is one database. It is possible to 
     
     con.sql("select count(*) from raw_jaffle_shop.customers")   # The result should be 100
     con.sql("select count(*) from raw_jaffle_shop.orders")      # The result should be 99
-    con.sql("select count(*) from raw_stripe.payments")         # The result should be 120
+    con.sql("select count(*) from raw_stripe.payment")         # The result should be 120
     
     con.close()
     ```
