@@ -98,12 +98,13 @@ DuckDB stores a database as a file. One file is one database. It is possible to 
     
     con.sql("select count(*) from raw_jaffle_shop.customers")   # The result should be 100
     con.sql("select count(*) from raw_jaffle_shop.orders")      # The result should be 99
-    con.sql("select count(*) from raw_stripe.payment")         # The result should be 120
+    con.sql("select count(*) from raw_stripe.payment")          # The result should be 120
     
     con.close()
     ```
 1. Now you have added a DuckDB database file **analytics.duckdb** and loaded the data into 3 tables
 1. Exit the Python or IPython prompt with `exit`
+1. Proceed with the next chapter
 
 ## Chapter 04. Models
 Most of the videos in this chapter you can just follow along. For the videos which are listed below, you need to make some exceptions.
@@ -122,9 +123,6 @@ When adding **_src_jaffle_shop.yml**, fill in the database `analytics` and the s
 
 ### Changes for video: References Sources in Staging Models
 In the video they show the SQL code which is compiled by dbt. You can use `dbt compile --select stg_jaffle_shop__customers`.
-
-### Changes for video: Source Freshness
-No changes for this chapter. Just follow the course.
 
 ## Chapter 06. Data Tests
 No changes for this chapter. Just follow the course.
