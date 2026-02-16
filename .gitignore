@@ -2,3 +2,9 @@ venv/
 logs/
 
 *.duckdb
+.user.yml
+
+# DBeaver
+.dbeaver/
+Scripts/
+.project
