@@ -102,3 +102,51 @@ DuckDB stores a database as a file. One file is one database. It is possible to 
     ```
 1. Now you have added a DuckDB database file **analytics.duckdb** and loaded the data into 3 tables
 1. Exit the Python or IPython prompt with `exit`
+
+## Chapter 04. Models
+Most of the videos in this chapter you can just follow along. For the videos which are listed below, you need to make some exceptions.
+
+### Changes for video: Build Your First Model
+In the **customers.sql** file replace the database.schema name `raw.jaffle_shop` with `analytics.raw_jaffle_shop` on line 8 and line 20.
+
+_Note:_ They show the option to Preview CTE. This is a capability of dbt Fusion. We installed dbt Core, so unfortunately we don't have that option.
+
+### Changes for Practice and Exemplar
+Also here, replace the database and schema with `analytics.raw_jaffle_shop`. And do the same for `analytics.raw_stripe`.
+
+## Chapter 05. Sources
+### Changes for video: Configure Sources
+When adding **_src_jaffle_shop.yml**, fill in the database `analytics` and the schema `raw_jaffle_shop`.
+
+### Changes for video: References Sources in Staging Models
+In the video they show the SQL code which is compiled by dbt. You can use `dbt compile --select stg_jaffle_shop__customers`.
+
+### Changes for video: Source Freshness
+No changes for this chapter. Just follow the course.
+
+## Chapter 06. Data Tests
+No changes for this chapter. Just follow the course.
+
+_Note:_ Throughout the dbt Fundamentals course, you see git commits are made once in a while. This is optional. Git is not covered in this guide.
+
+## Chapter 07. Documentation
+No changes for this chapter. Just follow the course.
+
+Generate the documentation with `dbt docs generate`. And serve it with `dbt docs serve`. [Read more](https://docs.getdbt.com/reference/commands/cmd-docs) about that.
+
+## Chapter 08. Deployment
+Setting up deployment or scheduling jobs in Orchestration is not possible because we don't have a dbt Cloud account.
+
+In your home directory (`~`) dbt has created a folder called **.dbt** with a file called **profiles.yml**. This [dbt profile](https://docs.getdbt.com/docs/core/connect-data-platform/profiles.yml) is filled in with the credentials you entered for `dbt init`. To add a new profile:
+1. Open **~/.dbt/profiles.yml**
+1. Write a new profile called `prod`
+1. Use the same arguments as you find under `dev`, except for the schema, use `schema: analytics`
+1. See the file **profiles.yml** in this repo for an example
+
+To use the production deployment, add the `--target prod` argument to the dbt commands you've learned:
+```
+dbt seed --target prod
+dbt source freshness --target prod
+dbt build --target prod
+dbt docs generate --target prod
+```
