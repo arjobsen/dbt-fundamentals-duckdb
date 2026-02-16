@@ -1,3 +1,5 @@
+> You can also use [this repository](https://github.com/arjobsen/dbt-fundamentals-postgresql) to follow dbt Fundamentals with PostgreSQL running in a Docker container!
+
 # dbt Fundamentals with DuckDB
 This guide describes how to follow [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) using a local dbt Core install and a local DuckDB database.
 
